@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public BaseStats stats;
+
+    void Awake()
+    {
+        // Crear estadísticas del enemigo
+        stats = new BaseStats(50, 5);
+
+        Debug.Log("Enemy creado con " + stats.Vida + " de vida");
+    }
+
+    public void RecibirDanio(int cantidad)
+    {
+        // Recibir daño mediante método
+        stats.RecibirDanio(cantidad);
+
+        Debug.Log(
+            gameObject.name +
+            " recibió " +
+            cantidad +
+            " de daño. Vida restante: " +
+            stats.Vida
+        );
+
+        // Si la vida llega a 0
+        if (stats.Vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        Debug.Log("Enemy destruido");
+    }
+}
