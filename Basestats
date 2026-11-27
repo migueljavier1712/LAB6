@@ -1,0 +1,26 @@
+public class BaseStats
+{
+    private int vida;
+    private int dano;
+
+    public int Vida
+    {
+        get { return vida; }
+    }
+
+    public int Dano
+    {
+        get { return dano; }
+    }
+
+    public BaseStats(int vidaInicial, int danoInicial)
+    {
+        vida = vidaInicial;
+        dano = danoInicial;
+    }
+
+    public void RecibirDanio(int cantidad)
+    {
+        vida -= cantidad;
+    }
+}
